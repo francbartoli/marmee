@@ -1,0 +1,25 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+
+
+[dev-packages]
+
+bumpversion = "*"
+wheel = "*"
+watchdog = "*"
+"flake8" = "*"
+tox = "*"
+coverage = "*"
+sphinx = "*"
+twine = "*"
+cryptography = "*"
+pyyaml = "*"
+pytest = "*"
+pytest-runner = "*"
