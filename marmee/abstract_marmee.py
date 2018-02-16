@@ -25,6 +25,16 @@ class AbstractMarmee(object):
         raise NotImplementedError  # abstract
 
     @abstractproperty
+    def inputs(self):
+        """Give the inputs of a calculation at certain point."""
+        raise NotImplementedError  # abstract
+
+    @abstractmethod
+    def set_inputs(self):
+        """Set the method that should place the inputs."""
+        raise NotImplementedError  # abstract
+
+    @abstractproperty
     def results(self):
         """Give the results of a calculation at certain point."""
         raise NotImplementedError  # abstract
@@ -40,6 +50,6 @@ class AbstractMarmee(object):
         raise NotImplementedError  # abstract
 
     @abstractmethod
-    def get_filters(self):
-        """Set the method that should give the filters."""
+    def set_filters(self):
+        """Set the method that should place the filters."""
         raise NotImplementedError  # abstract

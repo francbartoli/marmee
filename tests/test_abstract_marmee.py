@@ -40,6 +40,14 @@ class TestAbstractMarmee(object):
         with pytest.raises(NotImplementedError):
             assert self.cls().get_name()
 
+    def test_inputs(self):
+        with pytest.raises(NotImplementedError):
+            assert self.cls().inputs
+
+    def test_set_inputs(self):
+        with pytest.raises(NotImplementedError):
+            assert self.cls().set_inputs()
+
     def test_results(self):
         with pytest.raises(NotImplementedError):
             assert self.cls().results
@@ -51,3 +59,7 @@ class TestAbstractMarmee(object):
     def test_filters(self):
         with pytest.raises(NotImplementedError):
             assert self.cls().filters
+
+    def test_set_filters(self):
+        with pytest.raises(NotImplementedError):
+            assert self.cls().set_filters()
