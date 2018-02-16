@@ -29,8 +29,25 @@ class TestAbstractMarmee(object):
     cls = AbstractMarmee
 
     def test_is_marmee(self):
-        assert self.cls().is_marmee
+        with pytest.raises(NotImplementedError):
+            assert self.cls().is_marmee
 
     def test_name(self):
         with pytest.raises(NotImplementedError):
             assert self.cls().name
+
+    def test_get_name(self):
+        with pytest.raises(NotImplementedError):
+            assert self.cls().get_name()
+
+    def test_results(self):
+        with pytest.raises(NotImplementedError):
+            assert self.cls().results
+
+    def test_get_results(self):
+        with pytest.raises(NotImplementedError):
+            assert self.cls().get_results()
+
+    def test_filters(self):
+        with pytest.raises(NotImplementedError):
+            assert self.cls().filters

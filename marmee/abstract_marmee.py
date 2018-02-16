@@ -1,15 +1,45 @@
 # -*- coding: utf-8 -*-
+from abc import ABCMeta, abstractmethod, abstractproperty
 
 """Marmee module."""
 
 
 class AbstractMarmee(object):
-    "docstring for AbstractMarmee"""
+    """Give docstring for AbstractMarmee."""
 
-    @property
+    __metaclass__ = ABCMeta
+
+    @abstractproperty
     def name(self):
-        raise NotImplementedError  # abstract class
+        """Give the name."""
+        raise NotImplementedError  # abstract
 
-    @property
+    @abstractmethod
+    def get_name(self):
+        """Set the method that should give the name."""
+        raise NotImplementedError  # abstract
+
+    @abstractproperty
     def is_marmee(self):
-        return True
+        """Give if it is the implementation."""
+        raise NotImplementedError  # abstract
+
+    @abstractproperty
+    def results(self):
+        """Give the results of a calculation at certain point."""
+        raise NotImplementedError  # abstract
+
+    @abstractmethod
+    def get_results(self):
+        """Set the method that should give the results."""
+        raise NotImplementedError  # abstract
+
+    @abstractproperty
+    def filters(self):
+        """Give the filters of a calculation at certain point."""
+        raise NotImplementedError  # abstract
+
+    @abstractmethod
+    def get_filters(self):
+        """Set the method that should give the filters."""
+        raise NotImplementedError  # abstract
