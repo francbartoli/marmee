@@ -23,7 +23,7 @@ def test_content(response):
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
 
 
-class TestMarmee(object):
+class TestAbstractMarmee(object):
     """docstring for testing marmee."""
 
     cls = AbstractMarmee
