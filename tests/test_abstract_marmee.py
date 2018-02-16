@@ -4,9 +4,7 @@
 """Tests for `marmee` package."""
 
 import pytest
-
-
-from marmee import marmee
+from marmee.abstract_marmee import AbstractMarmee
 
 
 @pytest.fixture
@@ -23,3 +21,16 @@ def test_content(response):
     """Sample pytest test function with the pytest fixture as an argument."""
     # from bs4 import BeautifulSoup
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
+
+
+class TestMarmee(object):
+    """docstring for testing marmee."""
+
+    cls = AbstractMarmee
+
+    def test_is_marmee(self):
+        assert self.cls().is_marmee
+
+    def test_name(self):
+        with pytest.raises(NotImplementedError):
+            assert self.cls().name
