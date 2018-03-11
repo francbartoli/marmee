@@ -30,7 +30,7 @@ class TestAbstractMarmee(object):
 
     def test_is_marmee(self):
         try:
-            self.cls().is_marmee
+            self.cls().is_marmee()
         except (NotImplementedError, TypeError):
             assert True
 

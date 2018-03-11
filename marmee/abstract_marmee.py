@@ -19,7 +19,7 @@ class AbstractMarmee(object):
         """Set the method that should give the name."""
         raise NotImplementedError  # abstract
 
-    @abstractproperty
+    @abstractmethod
     def is_marmee(self):
         """Give if it is the implementation."""
         raise NotImplementedError  # abstract
