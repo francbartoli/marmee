@@ -12,7 +12,7 @@ class Filter():
     return '<Filter(name={self.name!r})>'.format(self=self)
 
 
-class InputSchema(Schema):
+class FilterSchema(Schema):
   name = fields.Str()
   rules = fields.List()
   created_at = fields.Date()
