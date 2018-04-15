@@ -4,7 +4,7 @@ from marshmallow import Schema, fields
 
 
 class Input():
-      def __init__(self, process, arguments):
+  def __init__(self, process, arguments):
     self.process = process
     self.arguments = arguments
     self.created_at = dt.datetime.now()
