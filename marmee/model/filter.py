@@ -12,7 +12,12 @@ class Filter():
 		return '<Filter(name={self.name!r})>'.format(self=self)
 
 
+class RuleSchema(Schema):
+	identifier = fields.Str()
+	description = fields.Str()
+	rule = fields.Dict()
+
 class FilterSchema(Schema):
 	name = fields.Str()
-	rules = fields.List()
+	rules = fields.Nested(RuleSchema, many=True)
 	created_at = fields.Date()
