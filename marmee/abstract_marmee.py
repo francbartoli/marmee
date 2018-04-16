@@ -35,13 +35,13 @@ class AbstractMarmee(object):
         raise NotImplementedError  # abstract
 
     @abstractproperty
-    def results(self):
-        """Give the results of a calculation at certain point."""
+    def outputs(self):
+        """Give the outputs of a calculation at certain point."""
         raise NotImplementedError  # abstract
 
     @abstractmethod
-    def get_results(self):
-        """Set the method that should give the results."""
+    def get_outputs(self):
+        """Set the method that should give the outputs."""
         raise NotImplementedError  # abstract
 
     @abstractproperty
