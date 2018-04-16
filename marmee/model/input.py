@@ -13,7 +13,12 @@ class Input():
 		return '<Input(name={self.process!r})>'.format(self=self)
 
 
+class ArgumentSchema(Schema):
+	positional = fields.Boolean()
+	identifier = fields.Str()
+	values = fields.List()
+
 class InputSchema(Schema):
 	process = fields.Str()
-	arguments = fields.List()
+	arguments = fields.Nested(ArgumentSchema, many=True)
 	created_at = fields.Date()
