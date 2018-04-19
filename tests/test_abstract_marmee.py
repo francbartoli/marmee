@@ -60,13 +60,13 @@ class TestAbstractMarmee(object):
 
     def test_results(self):
         try:
-            self.cls().results
+            self.cls().outputs
         except (NotImplementedError, TypeError):
             assert True
 
     def test_get_results(self):
         try:
-            self.cls().get_results()
+            self.cls().get_outputs()
         except (NotImplementedError, TypeError):
             assert True
 
