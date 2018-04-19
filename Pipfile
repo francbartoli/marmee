@@ -1,17 +1,12 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
-marshmallow = "*"
-
+marshmallow = "==3.0.0b8"
 
 [dev-packages]
-
 bumpversion = "*"
 wheel = "*"
 watchdog = "*"
@@ -27,3 +22,6 @@ pytest-runner = "*"
 ipython = "*"
 pytest-pythonpath = "*"
 pystac = "*"
+
+[pipenv]
+allow_prereleases = true
