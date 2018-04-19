@@ -10,11 +10,11 @@ class Input():
 		self.created_at = dt.datetime.now()
 
 	def __repr__(self):
-		return '<Input(name={self.process!r})>'.format(self=self)
+		return '<Input(process={self.process!r})>'.format(self=self)
 
 
 class ArgumentSchema(Schema):
-	positional = fields.Boolean()
+	positional = fields.Bool()
 	identifier = fields.Str()
 	values = fields.List()
 
