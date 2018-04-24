@@ -11,18 +11,8 @@ class Input():
 	def __repr__(self):
 		return '<Input(item={self.item.id!r})>'.format(self=self)
 
-# class ArgumentSchema(Schema):
-# 	positional = fields.Bool()
-# 	identifier = fields.Str()
-# 	values = fields.List(fields.Str())
 
-# class InputSchema(Schema):
-# 	process = fields.Str()
-# 	arguments = fields.Nested(ArgumentSchema, many=True)
-# 	created_at = fields.Date()
-
-
-class InputSchema():
+class InputSchema(Schema):
 	item = fields.Method('get_item', deserialize='load_item')
 	filters = fields.Nested(FilterSchema, many=True)
 
