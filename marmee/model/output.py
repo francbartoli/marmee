@@ -4,26 +4,23 @@ from marshmallow import Schema, fields
 
 
 class Output():
-	def __init__(self, description, stats, maps, errors):
-		self.description = description
-		self.stats = stats
-		self.maps = maps
-		self.errors = errors
-		self.created_at = dt.datetime.now()
+	def __init__(self, item):
+		self.item = item
 
 	def __repr__(self):
-    	return '<Output(name={self.description!r})>'.format(self=self)
-
-class MapSchema(Schema):
-	product = fields.String()
-	token = fields.String()
-	mapid = fields.String()
-	image = fields.Dict()
+    	return '<Output(item={self.item.id!r})>'.format(self=self)
 
 
 class OutputSchema(Schema):
-	description = fields.Str()
-	stats = fields.Dict()
-	maps = fields.Nested(MapSchema, many=True)
-	errors = fields.Dict()
-	created_at = fields.Date()
+	item = fields.Method('get_item', deserialize='load_item')
+
+
+	def	get_item(self, obj):
+		try:
+			isinstance(obj, Item)
+			return obj.dict
+		except ValidationError as e:
+			raise
+	
+	def load_item(self, obj):
+		return obj.json
