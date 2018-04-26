@@ -10,6 +10,7 @@ python_version = "2.7.14"
 marshmallow = "==3.0.0b8"
 stacpy = "*"
 pendulum = "*"
+earthengine-api = "*"
 
 [dev-packages]
 bumpversion = "*"
