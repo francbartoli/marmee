@@ -1,4 +1,4 @@
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, ValidationError
 from marmee.model.filter import FilterSchema
 from pystac.models.item import Item
 
