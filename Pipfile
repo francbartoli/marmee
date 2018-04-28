@@ -28,6 +28,7 @@ pytest-runner = "*"
 ipython = "*"
 pytest-pythonpath = "*"
 "autopep8" = "*"
+"doc8" = "*"
 
 [pipenv]
 allow_prereleases = true
