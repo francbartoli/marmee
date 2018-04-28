@@ -1,3 +1,8 @@
+# Copyright (c) 2018 Francesco Bartoli
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+# -*- coding: utf-8 -*-
 from marmee.abstract_marmee import AbstractMarmee
 from marshmallow import fields, Schema
 from marmee.model.input import InputSchema, Input
@@ -6,7 +11,7 @@ from marmee.model.filter import FilterSchema, Filter
 
 
 class Marmee(AbstractMarmee):
-    
+
     def __init__(self, name, inputs, filters, outputs):
 
         self.name = name

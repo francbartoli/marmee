@@ -1,3 +1,8 @@
+# Copyright (c) 2018 Francesco Bartoli
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 from marshmallow import ValidationError
 from pystac.models.item import Item
 from pystac.models.asset import Asset

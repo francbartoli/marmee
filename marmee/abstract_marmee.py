@@ -1,4 +1,10 @@
+# Copyright (c) 2018 Francesco Bartoli
+# 
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
 # -*- coding: utf-8 -*-
+
 from abc import ABCMeta, abstractmethod, abstractproperty
 
 """Marmee module."""
