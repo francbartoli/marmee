@@ -62,10 +62,7 @@ class Stac(object):
     def _properties(self):
         if 'properties' in self._get_info().keys():
             extprops = self._get_info().get('properties')
-            provider = ""
-            license = ""
-            dtime = ""
-            index = ""
+            provider = license = dtime = index = ""
             footprint = {}
             for key in extprops.keys():
                 if isinstance(json.dumps(extprops[key]), str):
