@@ -4,7 +4,7 @@
 # https://opensource.org/licenses/MIT
 
 from marshmallow import Schema, fields, ValidationError
-from marmee.model.filter import FilterSchema
+from filter import FilterSchema
 from pystac.models.item import Item
 
 

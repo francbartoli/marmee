@@ -20,6 +20,7 @@ class RuleSchema(Schema):
     description = fields.Str()
     rule = fields.Dict()
 
+
 class FilterSchema(Schema):
     name = fields.Str()
     rules = fields.Nested(RuleSchema, many=True)

@@ -4,6 +4,8 @@
 # https://opensource.org/licenses/MIT
 
 # -*- coding: utf-8 -*-
+from .marmee import Marmee
+from .abstract_marmee import AbstractMarmee
 
 """Top-level package for marmee."""
 
