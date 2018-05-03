@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "44714554b3d0562c098e76e0509c5ec49898dcbaa1ff778acc84335c3ddf4173"
+            "sha256": "76627638e5e4d87a45cc7aeec0661aebbece0c5c39bdc13d1654194e0738bf6f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -141,6 +141,7 @@
                 "sha256:6bd0f6ad48ec2aa117d3d141940d484deccda84d4fcd884f5c3d93c23ecd8c79",
                 "sha256:8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
             ],
+            "markers": "python_version < '3'",
             "version": "==1.1.6"
         },
         "geojson": {
@@ -180,19 +181,15 @@
         },
         "marshmallow": {
             "hashes": [
-                "sha256:4293185d8069ab4363f6359bc9fcfdc8be2fd2c593318d36ea391b93b632241b",
-                "sha256:5ea1340c1a17c560e05db1be8ba32908d557a309c7e490ba863bb781728603a1"
+                "sha256:cbedade4d2d7cdd88110de3645e67b63efbec13ad191fcbb3b8f958ad01ffa06",
+                "sha256:dcaa1cb13fc54db23c66e5fd56a666dadc4c9a4e99b8e465d4f69cccb1e91696"
             ],
             "index": "pypi",
-            "version": "==3.0.0b8"
+            "version": "==3.0.0b9"
         },
         "marshmallow-oneofschema": {
-            "hashes": [
-                "sha256:5b645dcb582657362362c6ad9fce5afa5ac31837cac2fe63b8eabf47995dd944",
-                "sha256:a8b7db820304bd8d9d954f5fe6522bfa89c003dac12fa0e76edddc244901f2f8"
-            ],
-            "index": "pypi",
-            "version": "==1.0.5"
+            "editable": true,
+            "git": "https://github.com/francbartoli/marshmallow-oneofschema.git"
         },
         "numpy": {
             "hashes": [
@@ -371,10 +368,10 @@
         },
         "stacpy": {
             "hashes": [
-                "sha256:1719bce4cf6994dd537d68df30cd091ba8574348580d7cdb2dc3443d831c71db"
+                "sha256:193e692bcf31b7c2915a389d494fd677e6e4c65e12ef38cb1cb459c7c8241449"
             ],
             "index": "pypi",
-            "version": "==0.1.5"
+            "version": "==0.1.7"
         },
         "typing": {
             "hashes": [
@@ -621,6 +618,7 @@
                 "sha256:6bd0f6ad48ec2aa117d3d141940d484deccda84d4fcd884f5c3d93c23ecd8c79",
                 "sha256:8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
             ],
+            "markers": "python_version < '3'",
             "version": "==1.1.6"
         },
         "flake8": {
@@ -978,10 +976,10 @@
         },
         "tqdm": {
             "hashes": [
-                "sha256:22c760d05b2eb6e96a91ad7ed1b03c9c97e6256fb7716410c27c2cb3265a5913",
-                "sha256:d7bfa112a55290a5e2d0c3263a09b17b24240686fbf20d1ef7c5e8edfbb71ad0"
+                "sha256:139b1672ab75ca6cb670d215ab0b408bec214ca3bed918de50ff265e0ee77617",
+                "sha256:75efcd98827971f96aa9b270e73ccedf1d275b781a9149a0846a7728010d045e"
             ],
-            "version": "==4.23.1"
+            "version": "==4.23.2"
         },
         "traitlets": {
             "hashes": [

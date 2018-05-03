@@ -7,11 +7,11 @@ name = "pypi"
 python_version = "2.7.14"
 
 [packages]
-marshmallow = "==3.0.0b8"
-stacpy = "*"
 pendulum = "*"
 earthengine-api = "*"
-marshmallow-oneofschema = "*"
+marshmallow = "==3.0.0b9"
+marshmallow-oneofschema = {git = "https://github.com/francbartoli/marshmallow-oneofschema.git", editable = true}
+stacpy = "*"
 
 [dev-packages]
 bumpversion = "*"
