@@ -4,6 +4,7 @@
 # https://opensource.org/licenses/MIT
 
 from marshmallow import Schema, fields
+from rule import RuleSchema
 
 
 class Filter():
@@ -13,12 +14,6 @@ class Filter():
 
     def __repr__(self):
         return '<Filter(name={self.name!r})>'.format(self=self)
-
-
-class RuleSchema(Schema):
-    identifier = fields.Str()
-    description = fields.Str()
-    rule = fields.Dict()
 
 
 class FilterSchema(Schema):
