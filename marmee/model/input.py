@@ -9,9 +9,9 @@ from pystac.models.item import Item
 
 
 class Input():
-    def __init__(self, item, filters):
+    def __init__(self, item, reducers):
         self.item = item
-        self.filters = filters
+        self.reducers = reducers
 
     def __repr__(self):
         return '<Input(item={self.item.id!r})>'.format(self=self)
@@ -19,7 +19,7 @@ class Input():
 
 class InputSchema(Schema):
     item = fields.Method('get_item', deserialize='load_item')
-    filters = fields.Nested(FilterSchema, many=True)
+    reducers = fields.Nested(FilterSchema, many=True)
 
     def get_item(self, obj):
         try:

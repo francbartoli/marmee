@@ -11,4 +11,4 @@ from .abstract_marmee import AbstractMarmee
 
 __author__ = """Francesco Bartoli"""
 __email__ = 'francesco.bartoli@geobeyond.it'
-__version__ = '0.1.0'
+__version__ = '0.1.1'

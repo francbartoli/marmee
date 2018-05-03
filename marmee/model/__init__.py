@@ -6,3 +6,4 @@
 from .filter import Filter
 from .input import Input
 from .output import Output
+from .rule import Rule, Range
