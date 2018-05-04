@@ -13,6 +13,14 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     # TODO: Put package requirements here
+    'pendulum',
+    'earthengine-api',
+    'marshmallow==3.0.0b9',
+    'stacpy'
+]
+
+links = [
+    'git+https://github.com/francbartoli/marshmallow-oneofschema.git@master#egg=marshmallow-oneofschema'
 ]
 
 setup_requirements = [
@@ -27,7 +35,7 @@ test_requirements = [
 
 setup(
     name='marmee',
-    version='0.1.2',
+    version='0.1.3',
     description="Execute safely Google Earth Engine algorithm through\
 a tunnel like a marmot",
     long_description=readme + '\n\n' + history,
@@ -37,6 +45,7 @@ a tunnel like a marmot",
     packages=find_packages(include=['marmee']),
     include_package_data=True,
     install_requires=requirements,
+    dependency_links=links,
     license="MIT license",
     zip_safe=False,
     keywords='marmee',
