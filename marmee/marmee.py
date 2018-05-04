@@ -14,10 +14,49 @@ class Marmee(AbstractMarmee):
 
     def __init__(self, name, inputs, filters, outputs):
 
-        self.name = name
-        self.inputs = inputs
-        self.filters = filters
-        self.outputs = outputs
+        self._name = name
+        self._inputs = inputs
+        self._filters = filters
+        self._outputs = []
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def set_name(self, val):
+        try:
+            self.name = val
+        except ValidationError as ve:
+            raise
+
+    @property
+    def inputs(self):
+        return self._inputs
+
+    @inputs.setter
+    def set_inputs(self, *args):
+        for arg in args:
+            try:
+                self._inputs += arg
+            except ValidationError as e:
+                raise
+
+    @property
+    def filters(self):
+        return self._filters
+
+    @filters.setter
+    def set_filters(self, *args):
+        for arg in args:
+            try:
+                self._filters += arg
+            except ValidationError as e:
+                raise
+
+    @property
+    def outputs(self):
+        return self._outputs
 
     def get_name(self):
         return self.name
@@ -25,24 +64,8 @@ class Marmee(AbstractMarmee):
     def is_marmee(self):
         pass
 
-    def set_inputs(self, *args):
-        for arg in args:
-            try:
-                isinstance(arg, Input)
-            except ValidationError as e:
-                raise
-        self.inputs += args
-
     def get_outputs(self):
         return self.outputs
-
-    def set_filters(self, *args):
-        for arg in args:
-            try:
-                isinstance(arg, Filter)
-            except ValidationError as e:
-                raise
-        self.filters += args
 
 
 class MarmeeSchema(Schema):
