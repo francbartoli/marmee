@@ -4,7 +4,7 @@
 # https://opensource.org/licenses/MIT
 
 from marshmallow import Schema, fields
-from rule import RuleSchema
+from .rule import RuleSchema
 
 
 class Filter():

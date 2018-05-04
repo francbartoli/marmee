@@ -4,3 +4,5 @@
 # https://opensource.org/licenses/MIT
 
 from .parser import Stac
+
+__all__ = ['parser']

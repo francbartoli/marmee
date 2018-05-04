@@ -3,11 +3,11 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 # -*- coding: utf-8 -*-
-from abstract_marmee import AbstractMarmee
+from .abstract_marmee import AbstractMarmee
 from marshmallow import fields, Schema, ValidationError
-from model.input import InputSchema, Input
-from model.output import OutputSchema
-from model.filter import FilterSchema, Filter
+from .model.input import InputSchema, Input
+from .model.output import OutputSchema
+from .model.filter import FilterSchema, Filter
 
 
 class Marmee(AbstractMarmee):
