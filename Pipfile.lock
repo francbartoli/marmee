@@ -129,10 +129,10 @@
         },
         "earthengine-api": {
             "hashes": [
-                "sha256:6dd2e0e8de8214c5cf499c55f13154f6a5109ef5ea673260c80b22f9a2b51c96"
+                "sha256:6fa0e55c8b75fd1409a15c850bcb3d885e92207b996f5523fe2ce8d67363a894"
             ],
             "index": "pypi",
-            "version": "==0.1.137"
+            "version": "==0.1.138"
         },
         "enum34": {
             "hashes": [
@@ -141,7 +141,6 @@
                 "sha256:6bd0f6ad48ec2aa117d3d141940d484deccda84d4fcd884f5c3d93c23ecd8c79",
                 "sha256:8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
             ],
-            "markers": "python_version < '3'",
             "version": "==1.1.6"
         },
         "geojson": {
@@ -368,10 +367,10 @@
         },
         "stacpy": {
             "hashes": [
-                "sha256:193e692bcf31b7c2915a389d494fd677e6e4c65e12ef38cb1cb459c7c8241449"
+                "sha256:da3c9941bffe634b24a9fba0f82c80aec4008401170edc5a73df42f9cdd9f18f"
             ],
             "index": "pypi",
-            "version": "==0.1.7"
+            "version": "==0.1.8"
         },
         "typing": {
             "hashes": [
@@ -379,7 +378,6 @@
                 "sha256:63a8255fe7c6269916baa440eb9b6a67139b0b97a01af632e7bd2842e1e02f15",
                 "sha256:d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
             ],
-            "markers": "python_version < '3.5.0.0'",
             "version": "==3.6.2"
         },
         "tzlocal": {
@@ -618,7 +616,6 @@
                 "sha256:6bd0f6ad48ec2aa117d3d141940d484deccda84d4fcd884f5c3d93c23ecd8c79",
                 "sha256:8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
             ],
-            "markers": "python_version < '3'",
             "version": "==1.1.6"
         },
         "flake8": {
@@ -798,8 +795,6 @@
         },
         "pycodestyle": {
             "hashes": [
-                "sha256:1ec08a51c901dfe44921576ed6e4c1f5b7ecbad403f871397feedb5eb8e4fa14",
-                "sha256:5ff2fbcbab997895ba9ead77e1b38b3ebc2e5c3b8a6194ef918666e4c790a00e",
                 "sha256:682256a5b318149ca0d2a9185d365d8864a768a28db66a84a2ea946bcc426766",
                 "sha256:6c4245ade1edfad79c3446fadfc96b0de2759662dc29d07d80a6f27ad1ca6ba9"
             ],
@@ -1002,7 +997,6 @@
                 "sha256:63a8255fe7c6269916baa440eb9b6a67139b0b97a01af632e7bd2842e1e02f15",
                 "sha256:d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
             ],
-            "markers": "python_version < '3.5.0.0'",
             "version": "==3.6.2"
         },
         "urllib3": {
