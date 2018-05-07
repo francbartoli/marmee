@@ -58,14 +58,23 @@ class Marmee(AbstractMarmee):
     def outputs(self):
         return self._outputs
 
+    @outputs.getter
+    def get_outputs(self):
+        return self.outputs
+
+    @outputs.setter
+    def set_outputs(self, *args):
+        for arg in args:
+            try:
+                self._outputs += arg
+            except ValidationError as e:
+                raise
+
     def get_name(self):
         return self.name
 
     def is_marmee(self):
         pass
-
-    def get_outputs(self):
-        return self.outputs
 
 
 class MarmeeSchema(Schema):
