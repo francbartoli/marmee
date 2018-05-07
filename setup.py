@@ -35,7 +35,7 @@ test_requirements = [
 
 setup(
     name='marmee',
-    version='0.1.4',
+    version='0.1.5',
     description="Execute safely Google Earth Engine algorithm through\
 a tunnel like a marmot",
     long_description=readme + '\n\n' + history,
