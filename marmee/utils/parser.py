@@ -7,15 +7,16 @@ from marshmallow import ValidationError
 from pystac.models.item import Item
 from pystac.models.asset import Asset
 from pystac.models.link import Link
+from pystac.models.collection import Collection
 from pystac.models.properties import Properties
-from ee import EEException, data
+from ee import EEException, data, Image, ImageCollection
 import pendulum
 import json
 import os
 
 TOKEN_TYPE = [
     ('Image', 'Item'),
-    ('ImageCollection', 'ItemCollection')
+    ('ImageCollection', 'Collection')
 ]
 
 
@@ -25,10 +26,10 @@ class Stac(object):
 
     @property
     def type(self):
-        if TOKEN_TYPE[0][0] in self._get_info(
+        if TOKEN_TYPE[0][0] == self._get_info(
         ).get('type'):
             return TOKEN_TYPE[0][1]
-        elif TOKEN_TYPE[1][0] in self._get_info(
+        elif TOKEN_TYPE[1][0] == self._get_info(
         ).get('type'):
             return TOKEN_TYPE[1][1]
 
@@ -40,6 +41,7 @@ class Stac(object):
 
         Returns:
             Item -- STAC feature of the Google Earth Engine Asset
+            Collection -- STAC collection of the Google Earth Engine Asset
         """
 
         if self.type == TOKEN_TYPE[0][1]:
@@ -53,11 +55,28 @@ class Stac(object):
                 )
             except ValidationError as e:
                 raise
+        elif self.type == TOKEN_TYPE[1][1]:
+            try:
+                return Collection(
+                    features=[]
+                )
+            except ValidationError as e:
+                raise
         else:
-            raise ValueError("Not implemented yet")
+            raise TypeError("Unrecognized Stac type found.")
 
     def _get_info(self):
         return data.getInfo(self.gee)
+
+    def _get_full_info(self):
+        if self.type in TOKEN_TYPE[0][1]:
+            return data.getValue(
+                {'json': Image(self.gee).serialize()}
+            )
+        elif self.type in TOKEN_TYPE[1][1]:
+            return data.getValue(
+                {'json': ImageCollection(self.gee).serialize()}
+            )
 
     def _properties(self):
         if 'properties' in self._get_info().keys():
