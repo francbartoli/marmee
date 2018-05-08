@@ -47,18 +47,31 @@ class Stac(object):
         if self.type == TOKEN_TYPE[0][1]:
             try:
                 return Item(
-                    item_id=self._link()[1],
-                    links=self._link()[0],
-                    assets=self._asset(),
-                    properties=self._properties()[0],
-                    geometry=self._properties()[2]
+                    item_id=self._link(None)[1],
+                    links=self._link(None)[0],
+                    assets=self._asset(None),
+                    properties=self._properties(None)[0],
+                    geometry=self._properties(None)[2]
                 )
             except ValidationError as e:
                 raise
         elif self.type == TOKEN_TYPE[1][1]:
             try:
+                res_list = []
+                for feature in self._get_full_info()['features']:
+                    res_list.append(
+                        Item(
+                            item_id=feature['id'],
+                            links=self._link(feature)[0],
+                            assets=self._asset(
+                                feature['properties']['system:index']
+                            ),
+                            properties=self._properties(feature)[0],
+                            geometry=self._properties(feature)[2]
+                        )
+                    )
                 return Collection(
-                    features=[]
+                    features=res_list
                 )
             except ValidationError as e:
                 raise
@@ -78,9 +91,11 @@ class Stac(object):
                 {'json': ImageCollection(self.gee).serialize()}
             )
 
-    def _properties(self):
-        if 'properties' in self._get_info().keys():
-            extprops = self._get_info().get('properties')
+    def _properties(self, gson):
+        if not gson:
+            gson = self._get_info()
+        if 'properties' in gson.keys():
+            extprops = gson.get('properties')
             provider = license = dtime = index = ""
             footprint = {}
             for key in extprops.keys():
@@ -113,19 +128,23 @@ class Stac(object):
             except ValidationError as e:
                 raise
 
-    def _asset(self):
-        href = name = self._properties()[1]
+    def _asset(self, gson):
+        if not gson:
+            gson = self._properties(None)[1]
+        href = name = gson
         try:
             asset = Asset(href=href, name=name)
             return {asset.name: asset.dict}
         except ValidationError as e:
             raise
 
-    def _link(self):
+    def _link(self, gson):
         lang = "EN"
         linktype = ""
-        if 'id' in self._get_info().keys():
-            ident = self._get_info().get('id')
+        if not gson:
+            gson = self._get_info()
+        if 'id' in gson:
+            ident = gson.get('id')
             href = os.path.dirname(ident)
             if data.getInfo(
                 href
