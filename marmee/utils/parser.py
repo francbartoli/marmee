@@ -49,8 +49,8 @@ class Stac(object):
         if self.type == TOKEN_TYPE[0][1]:
             try:
                 return Item(
-                    item_id=self._link(None)[1],
-                    links=self._link(None)[0],
+                    item_id=self._link(None, None)[1],
+                    links=self._link(None, None)[0],
                     assets=self._asset(None),
                     properties=self._properties(None)[0],
                     geometry=self._properties(None)[2]
@@ -62,14 +62,14 @@ class Stac(object):
                 # parallelize item computation
                 items = [self._features_iterator(
                     feature['id'],
-                    self._link(feature)[0],
+                    self._link(feature, data.ASSET_TYPE_IMAGE_COLL)[0],
                     self._asset(
                         feature['properties']['system:index']
                     ),
                     self._properties(feature)[0],
                     self._properties(feature)[2]
                 ) for feature in self._get_full_info()['features']]
-                res_list = dask.compute(items)[0]  # []
+                res_list = dask.compute(items)[0]
 
                 return Collection(
                     features=res_list
@@ -139,7 +139,7 @@ class Stac(object):
         except ValidationError as e:
             raise
 
-    def _link(self, gson):
+    def _link(self, gson, rel_asset):
         lang = "EN"
         linktype = ""
         if not gson:
@@ -147,14 +147,17 @@ class Stac(object):
         if 'id' in gson:
             ident = gson.get('id')
             href = os.path.dirname(ident)
-            if data.getInfo(
-                href
-            ).get('type') in data.ASSET_TYPE_IMAGE_COLL:
-                rel = data.ASSET_TYPE_IMAGE_COLL
-            elif data.getInfo(
-                href
-            ).get('type') in data.ASSET_TYPE_FOLDER:
-                rel = data.ASSET_TYPE_FOLDER
+            if not rel_asset:
+                if data.getInfo(
+                    href
+                ).get('type') in data.ASSET_TYPE_IMAGE_COLL:
+                    rel = data.ASSET_TYPE_IMAGE_COLL
+                elif data.getInfo(
+                    href
+                ).get('type') in data.ASSET_TYPE_FOLDER:
+                    rel = data.ASSET_TYPE_FOLDER
+            else:
+                rel = rel_asset
             try:
                 return (
                     [Link(
