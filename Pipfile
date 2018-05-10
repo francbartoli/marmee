@@ -12,6 +12,8 @@ earthengine-api = "*"
 marshmallow = "==3.0.0b9"
 marshmallow-oneofschema = {git = "https://github.com/francbartoli/marshmallow-oneofschema.git", editable = true}
 stacpy = "*"
+dask = {extras = ["complete"]}
+pandas = "*"
 
 [dev-packages]
 bumpversion = "*"

@@ -11,6 +11,8 @@ from pystac.models.collection import Collection
 from pystac.models.properties import Properties
 from ee import EEException, data, Image, ImageCollection
 import pendulum
+import dask
+from dask.delayed import delayed
 import json
 import os
 
@@ -57,19 +59,18 @@ class Stac(object):
                 raise
         elif self.type == TOKEN_TYPE[1][1]:
             try:
-                res_list = []
-                for feature in self._get_full_info()['features']:
-                    res_list.append(
-                        Item(
-                            item_id=feature['id'],
-                            links=self._link(feature)[0],
-                            assets=self._asset(
-                                feature['properties']['system:index']
-                            ),
-                            properties=self._properties(feature)[0],
-                            geometry=self._properties(feature)[2]
-                        )
-                    )
+                # parallelize item computation
+                items = [self._features_iterator(
+                    feature['id'],
+                    self._link(feature)[0],
+                    self._asset(
+                        feature['properties']['system:index']
+                    ),
+                    self._properties(feature)[0],
+                    self._properties(feature)[2]
+                ) for feature in self._get_full_info()['features']]
+                res_list = dask.compute(items)[0]  # []
+
                 return Collection(
                     features=res_list
                 )
@@ -168,3 +169,14 @@ class Stac(object):
                 raise
         else:
             raise EEException("Asset has to be with unique id property")
+
+    @delayed
+    def _features_iterator(ft_id, link, asset, props, geom):
+
+        return Item(
+            item_id=ft_id,
+            links=link,
+            assets=asset,
+            properties=props,
+            geometry=geom
+        )
