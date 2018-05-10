@@ -5,12 +5,13 @@
 # -*- coding: utf-8 -*-
 from .abstract_marmee import AbstractMarmee
 from marshmallow import fields, Schema, ValidationError
-from .model.input import InputSchema, Input
+from .model.base import MarmeeObject
+from .model.input import InputSchema
 from .model.output import OutputSchema
-from .model.filter import FilterSchema, Filter
+from .model.filter import FilterSchema
 
 
-class Marmee(AbstractMarmee):
+class Marmee(AbstractMarmee, MarmeeObject):
 
     def __init__(self, name, inputs, filters, outputs):
 
@@ -75,6 +76,21 @@ class Marmee(AbstractMarmee):
 
     def is_marmee(self):
         pass
+
+    @property
+    def dict(self):
+        return dict(
+            name=self.name,
+            inputs=[input.dict for input in self.inputs],
+            filters=[filter.dict for filter in self.filters],
+            outputs=[output.dict for output in self.outputs],
+        )
+
+    @property
+    def json(self):
+        return MarmeeSchema().dumps(
+            self
+        )
 
 
 class MarmeeSchema(Schema):

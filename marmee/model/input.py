@@ -4,17 +4,31 @@
 # https://opensource.org/licenses/MIT
 
 from marshmallow import Schema, fields, ValidationError
+from .base import MarmeeObject
 from .filter import FilterSchema
 from pystac.models.item import Item
 
 
-class Input():
+class Input(MarmeeObject):
     def __init__(self, item, reducers):
         self.item = item
         self.reducers = reducers
 
     def __repr__(self):
         return '<Input(item={self.item.id!r})>'.format(self=self)
+
+    @property
+    def dict(self):
+        return dict(
+            item=self.item,
+            reducers=self.reducers
+        )
+
+    @property
+    def json(self):
+        return InputSchema().dumps(
+            self
+        )
 
 
 class InputSchema(Schema):

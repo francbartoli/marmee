@@ -4,17 +4,42 @@
 # https://opensource.org/licenses/MIT
 
 from marshmallow import fields, Schema, post_load
+from .base import MarmeeObject
 from marshmallow_oneofschema import OneOfSchema
 
 
-class SpatialRule(object):
+class SpatialRule(MarmeeObject):
     def __init__(self, extent):
         self.extent = extent
 
+    @property
+    def dict(self):
+        return dict(
+            extent=self.extent
+        )
 
-class TemporalRule(object):
+    @property
+    def json(self):
+        return SpatialRuleSchema().dumps(
+            self
+        )
+
+
+class TemporalRule(MarmeeObject):
     def __init__(self, daterange):
         self.daterange = daterange
+
+    @property
+    def dict(self):
+        return dict(
+            daterange=self.daterange
+        )
+
+    @property
+    def json(self):
+        return TemporalRuleSchema().dumps(
+            self
+        )
 
 
 class SpatialRuleSchema(Schema):
@@ -25,10 +50,23 @@ class SpatialRuleSchema(Schema):
         return SpatialRule(**data)
 
 
-class Range(object):
+class Range(MarmeeObject):
     def __init__(self, from_date, to_date):
         self.from_date = from_date
         self.to_date = to_date
+
+    @property
+    def dict(self):
+        return dict(
+            from_date=self.from_date,
+            to_date=self.to_date
+        )
+
+    @property
+    def json(self):
+        return RangeSchema().dumps(
+            self
+        )
 
 
 class RangeSchema(Schema):
@@ -59,10 +97,23 @@ class ExtentSchema(OneOfSchema):
             raise Exception('Unknown object type: %s' % obj.__class__.__name__)
 
 
-class Rule(object):
+class Rule(MarmeeObject):
     def __init__(self, identifier, rule):
         self.identifier = identifier
         self.rule = rule
+
+    @property
+    def dict(self):
+        return dict(
+            identifier=self.identifier,
+            rule=self.rule
+        )
+
+    @property
+    def json(self):
+        return RuleSchema().dumps(
+            self
+        )
 
 
 class RuleSchema(Schema):
