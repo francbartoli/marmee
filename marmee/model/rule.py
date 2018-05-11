@@ -58,8 +58,8 @@ class Range(MarmeeObject):
     @property
     def dict(self):
         return dict(
-            from_date=self.from_date,
-            to_date=self.to_date
+            from_date=self.from_date.strftime("%Y-%m-%d"),
+            to_date=self.to_date.strftime("%Y-%m-%d")
         )
 
     @property
@@ -74,8 +74,8 @@ class RangeSchema(Schema):
     to_date = fields.DateTime()
 
 
-class TemporalRuleSchema(Schema):
-    daterange = fields.Nested(RangeSchema, required=True)
+class TemporalRuleSchema(RangeSchema):
+    daterange = fields.Dict(required=True)
 
     @post_load
     def make_daterange(self, data):
