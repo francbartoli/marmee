@@ -20,7 +20,7 @@ requirements = [
     'stacpy'
 ]
 
-links = [
+dependency_links = [
     'git+https://github.com/francbartoli/marshmallow-oneofschema.git@master#egg=marshmallow-oneofschema-1.0.6'
 ]
 
