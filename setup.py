@@ -16,12 +16,12 @@ requirements = [
     'pendulum',
     'earthengine-api',
     'marshmallow==3.0.0b9',
-    'marshmallow-oneofschema',
+    'marshmallow-oneofschema==master',
     'stacpy'
 ]
 
 links = [
-    'git+https://github.com/francbartoli/marshmallow-oneofschema.git@master#egg=marshmallow-oneofschema'
+    'git+https://github.com/francbartoli/marshmallow-oneofschema.git@master#egg=marshmallow-oneofschema-master'
 ]
 
 setup_requirements = [
