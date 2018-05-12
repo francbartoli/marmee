@@ -20,8 +20,8 @@ requirements = [
     'stacpy'
 ]
 
-dependency_links = [
-    'git+https://github.com/francbartoli/marshmallow-oneofschema.git@master#egg=marshmallow-oneofschema-1.0.6'
+deps_links = [
+    'git+ssh://github.com/francbartoli/marshmallow-oneofschema.git@master#egg=marshmallow-oneofschema-1.0.6'
 ]
 
 setup_requirements = [
@@ -46,7 +46,7 @@ a tunnel like a marmot",
     packages=find_packages(include=['marmee']),
     include_package_data=True,
     install_requires=requirements,
-    dependency_links=links,
+    dependency_links=deps_links,
     license="MIT license",
     zip_safe=False,
     keywords='marmee',

@@ -21,7 +21,7 @@ deploy:
     python: 2.7
     repo: francbartoli/marmee
     tags: true
-install: pip install -U tox-travis --process-dependency-links
+install: pip install -U tox-travis
 language: python
 python:
 - 3.6
