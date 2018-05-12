@@ -9,6 +9,7 @@ from .model.base import MarmeeObject
 from .model.input import InputSchema
 from .model.output import OutputSchema
 from .model.filter import FilterSchema
+import json
 
 
 class Marmee(AbstractMarmee, MarmeeObject):
@@ -88,9 +89,10 @@ class Marmee(AbstractMarmee, MarmeeObject):
 
     @property
     def json(self):
-        return MarmeeSchema().dumps(
-            self
-        )
+        # return MarmeeSchema().dumps(
+        #     self
+        # )
+        return json.dumps(self.dict)
 
 
 class MarmeeSchema(Schema):

@@ -7,6 +7,7 @@ from marshmallow import Schema, fields, ValidationError
 from .base import MarmeeObject
 from .filter import FilterSchema
 from pystac.models.item import Item
+import json
 
 
 class Input(MarmeeObject):
@@ -20,15 +21,16 @@ class Input(MarmeeObject):
     @property
     def dict(self):
         return dict(
-            item=self.item,
-            reducers=self.reducers
+            item=self.item.dict,
+            reducers=[reducer.dict for reducer in self.reducers]
         )
 
     @property
     def json(self):
-        return InputSchema().dumps(
-            self
-        )
+        # return InputSchema().dumps(
+        #     self
+        # )
+        return json.dumps(self.dict)
 
 
 class InputSchema(Schema):

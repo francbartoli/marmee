@@ -6,6 +6,7 @@
 from marshmallow import fields, Schema, post_load
 from .base import MarmeeObject
 from marshmallow_oneofschema import OneOfSchema
+import json
 
 
 class SpatialRule(MarmeeObject):
@@ -82,7 +83,28 @@ class TemporalRuleSchema(RangeSchema):
         return TemporalRule(**data)
 
 
+# class Extent(MarmeeObject):
+#     def __init__(self, t_rule, s_rule):
+#         # self = TemporalRule(t_rule.dict), SpatialRule(s_rule.dict)
+#         self = ExtentSchema(many=True).dump(
+#             [t_rule, s_rule]
+#         )
+
+#     @property
+#     def dict(self):
+#         return json.loads(self)
+
+#     @property
+#     def json(self):
+#         # return ExtentSchema().dump(
+#         #     self, many=True
+#         # )
+#         return json.dumps(self.dict)
+
+
 class ExtentSchema(OneOfSchema):
+    type_field = 'type'
+    type_field_remove = False
     type_schemas = {
         'spatial': SpatialRuleSchema,
         'temporal': TemporalRuleSchema,
@@ -106,14 +128,16 @@ class Rule(MarmeeObject):
     def dict(self):
         return dict(
             identifier=self.identifier,
+            # rule=[r.dict for r in self.rule]
             rule=self.rule
         )
 
     @property
     def json(self):
-        return RuleSchema().dumps(
-            self
-        )
+        # return RuleSchema().dumps(
+        #     self
+        # )
+        return json.dumps(self.dict)
 
 
 class RuleSchema(Schema):
