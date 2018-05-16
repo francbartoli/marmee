@@ -21,7 +21,7 @@ requirements = [
 ]
 
 deps_links = [
-    'git+ssh://github.com/francbartoli/marshmallow-oneofschema.git@master#egg=marshmallow-oneofschema-1.0.6'
+    'git+ssh://git@github.com/francbartoli/marshmallow-oneofschema.git@1.0.6#egg=marshmallow-oneofschema-1.0.6'
 ]
 
 setup_requirements = [
