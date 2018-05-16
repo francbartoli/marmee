@@ -16,7 +16,7 @@ requirements = [
     'pendulum',
     'earthengine-api',
     'marshmallow==3.0.0b9',
-    'marshmallow-oneofschema==1.0.6',
+    'marshmallow-oneofschema>=1.0.6',
     'stacpy'
 ]
 
