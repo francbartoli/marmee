@@ -40,7 +40,7 @@ class Marmee(AbstractMarmee, MarmeeObject):
     def set_inputs(self, *args):
         for arg in args:
             try:
-                self._inputs += arg
+                self._inputs.append(arg)
             except ValidationError as e:
                 raise
 
@@ -52,7 +52,7 @@ class Marmee(AbstractMarmee, MarmeeObject):
     def set_filters(self, *args):
         for arg in args:
             try:
-                self._filters += arg
+                self._filters.append(arg)
             except ValidationError as e:
                 raise
 
@@ -68,7 +68,7 @@ class Marmee(AbstractMarmee, MarmeeObject):
     def set_outputs(self, *args):
         for arg in args:
             try:
-                self._outputs += arg
+                self._outputs.append(arg)
             except ValidationError as e:
                 raise
 
