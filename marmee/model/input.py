@@ -7,21 +7,22 @@ from marshmallow import Schema, fields, ValidationError
 from .base import MarmeeObject
 from .filter import FilterSchema
 from pystac.models.item import Item
+from pystac.models.collection import Collection
 import json
 
 
 class Input(MarmeeObject):
-    def __init__(self, item, reducers):
-        self.item = item
+    def __init__(self, stacobject, reducers):
+        self.stacobject = stacobject
         self.reducers = reducers
 
     def __repr__(self):
-        return '<Input(item={self.item.id!r})>'.format(self=self)
+        return '<Input(stacobject={self.stacobject.id!r})>'.format(self=self)
 
     @property
     def dict(self):
         return dict(
-            item=self.item.dict,
+            stacobject=self.stacobject.dict,
             reducers=[reducer.dict for reducer in self.reducers]
         )
 
@@ -34,15 +35,18 @@ class Input(MarmeeObject):
 
 
 class InputSchema(Schema):
-    item = fields.Method('get_item', deserialize='load_item')
+    stacobject = fields.Method(
+        'get_stacobject',
+        deserialize='load_stacobject'
+    )
     reducers = fields.Nested(FilterSchema, many=True)
 
-    def get_item(self, obj):
+    def get_stacobject(self, obj):
         try:
-            isinstance(obj, Item)
+            isinstance(obj, Item) or isinstance(obj, Collection)
             return obj.dict
         except ValidationError as e:
             raise
 
-    def load_item(self, obj):
+    def load_stacobject(self, obj):
         return obj.json

@@ -34,12 +34,14 @@ class Stac(object):
         elif TOKEN_TYPE[1][0] == self._get_info(
         ).get('type'):
             return TOKEN_TYPE[1][1]
+        else:
+            raise TypeError("Unrecognized Stac type found.")
 
     def parse(self):
         """Parse an asset from Earth Engine to STAC item
 
         Raises:
-            ValueError -- If asset is an ImageCollection
+            ValueError -- If asset is not of type Image or ImageCollection
 
         Returns:
             Item -- STAC feature of the Google Earth Engine Asset
@@ -72,6 +74,7 @@ class Stac(object):
                 res_list = dask.compute(items)[0]
 
                 return Collection(
+                    collection_id=self._get_info()['id'],
                     features=res_list
                 )
             except ValidationError as e:
