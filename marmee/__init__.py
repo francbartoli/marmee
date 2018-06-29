@@ -1,5 +1,5 @@
 # Copyright (c) 2018 Francesco Bartoli
-# 
+#
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
@@ -9,4 +9,4 @@
 
 __author__ = """Francesco Bartoli"""
 __email__ = 'francesco.bartoli@geobeyond.it'
-__version__ = '0.1.8'
+__version__ = '0.1.9'

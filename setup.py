@@ -15,7 +15,7 @@ requirements = [
     # TODO: Put package requirements here
     'pendulum',
     'earthengine-api',
-    'marshmallow==3.0.0b9',
+    'marshmallow==3.0.0b11',
     'marshmallow-oneofschema>=1.0.6',
     'stacpy'
 ]
@@ -36,7 +36,7 @@ test_requirements = [
 
 setup(
     name='marmee',
-    version='0.1.8',
+    version='0.1.9',
     description="Execute safely Google Earth Engine algorithm through\
 a tunnel like a marmot",
     long_description=readme + '\n\n' + history,
