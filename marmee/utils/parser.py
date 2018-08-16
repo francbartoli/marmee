@@ -1,5 +1,5 @@
 # Copyright (c) 2018 Francesco Bartoli
-# 
+#
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
@@ -177,7 +177,7 @@ class Stac(object):
             raise EEException("Asset has to be with unique id property")
 
     @delayed
-    def _features_iterator(ft_id, link, asset, props, geom):
+    def _features_iterator(self, ft_id, link, asset, props, geom):
 
         return Item(
             item_id=ft_id,
