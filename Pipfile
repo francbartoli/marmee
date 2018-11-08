@@ -9,11 +9,11 @@ python_version = "2.7.14"
 [packages]
 pendulum = "*"
 earthengine-api = "*"
-marshmallow-oneofschema = {git = "https://github.com/francbartoli/marshmallow-oneofschema.git", editable = true}
+marshmallow-oneofschema = ">=2.0.0b1"
 dask = {extras = ["complete"]}
 pandas = "*"
 marshmallow = "*"
-stacpy = "*"
+py-stac = "*"
 
 [dev-packages]
 bumpversion = "*"

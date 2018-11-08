@@ -6,8 +6,8 @@
 from marshmallow import Schema, fields, ValidationError
 from .base import MarmeeObject
 from .filter import FilterSchema
-from pystac.models.item import Item
-from pystac.models.collection import Collection
+from stac.models.item import Item
+from stac.models.collection import Collection
 import json
 
 

@@ -5,7 +5,7 @@
 
 from marshmallow import Schema, fields, ValidationError
 from .base import MarmeeObject
-from pystac.models.item import Item
+from stac.models.item import Item
 
 
 class Output(MarmeeObject):

@@ -4,11 +4,11 @@
 # https://opensource.org/licenses/MIT
 
 from marshmallow import ValidationError
-from pystac.models.item import Item
-from pystac.models.asset import Asset
-from pystac.models.link import Link
-from pystac.models.collection import Collection
-from pystac.models.properties import Properties
+from stac.models.item import Item
+from stac.models.asset import Asset
+from stac.models.link import Link
+from stac.models.collection import Collection
+from stac.models.properties import Properties
 from ee import EEException, data, Image, ImageCollection
 import pendulum
 import dask
