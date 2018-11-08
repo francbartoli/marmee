@@ -15,14 +15,12 @@ requirements = [
     # TODO: Put package requirements here
     'pendulum',
     'earthengine-api',
-    'marshmallow==3.0.0b11',
-    'marshmallow-oneofschema>=1.0.6',
-    'stacpy'
+    'marshmallow>=3.0.0b12',
+    'marshmallow-oneofschema>=2.0.0b1',
+    'py-stac'
 ]
 
-deps_links = [
-    'git+https://github.com/francbartoli/marshmallow-oneofschema.git@1.0.6#egg=marshmallow-oneofschema-1.0.6'
-]
+deps_links = []
 
 setup_requirements = [
     'pytest-runner',
@@ -36,7 +34,7 @@ test_requirements = [
 
 setup(
     name='marmee',
-    version='0.2.0',
+    version='0.2.4',
     description="Execute safely Google Earth Engine algorithm through\
 a tunnel like a marmot",
     long_description=readme + '\n\n' + history,

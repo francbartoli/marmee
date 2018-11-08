@@ -9,4 +9,4 @@
 
 __author__ = """Francesco Bartoli"""
 __email__ = 'francesco.bartoli@geobeyond.it'
-__version__ = '0.2.0'
+__version__ = '0.2.4'
